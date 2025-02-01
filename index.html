@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shooting Game</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-gray-800 text-white h-screen relative overflow-hidden">
+    <!-- Start Menu -->
+    <div id="startMenu" class="overlay">
+      <h1 class="text-5xl font-bold mb-6">Shooting Game</h1>
+      <button
+        id="startButton"
+        class="px-6 py-3 bg-green-500 hover:bg-green-600 rounded-md text-2xl"
+      >
+        Start Game
+      </button>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pauseMenu" class="overlay hidden">
+      <h1 class="text-5xl font-bold mb-6">Paused</h1>
+      <button
+        id="resumeButton"
+        class="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 rounded-md text-2xl"
+      >
+        Resume Game
+      </button>
+    </div>
+
+    <!-- Game Over Menu -->
+    <div id="gameOverMenu" class="overlay hidden">
+      <h1 class="text-5xl font-bold mb-6" id="gameOverText">Game Over</h1>
+      <button
+        id="restartButton"
+        class="px-6 py-3 bg-red-500 hover:bg-red-600 rounded-md text-2xl"
+      >
+        Restart Game
+      </button>
+    </div>
+
+    <!-- Score and Health Display -->
+    <div class="absolute top-4 left-4 z-20">
+      <p id="scoreDisplay" class="text-xl">Score: 0</p>
+    </div>
+
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+    <!-- JavaScript files -->
+    <script src="js/utils.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/bullet.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

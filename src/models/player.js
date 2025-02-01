@@ -6,8 +6,8 @@ const player = {
   width: 40,
   height: 20,
   speed: 5,
-  health: 5,
-  maxHealth: 5,
+  health: 10, // increased starting health
+  maxHealth: 10,
   lastShot: 0,
 };
 
@@ -21,9 +21,8 @@ function updatePlayer(keys, canvas) {
 }
 
 function renderPlayer(ctx) {
-  ctx.fillStyle = "#48bb78"; // Tailwind green-400
+  ctx.fillStyle = "#4299E1"; // blue for the player
   ctx.fillRect(player.x, player.y, player.width, player.height);
-  // Draw health bar above player
   drawHealthBar(
     ctx,
     player.x,

@@ -16,20 +16,30 @@ const keys = {};
 
 // Keyboard listeners
 document.addEventListener("keydown", (e) => {
-  // Allow ESC to toggle pause/resume even if not playing.
+  // Toggle pause/resume with ESC
   if (e.key === "Escape") {
     if (gameState.state === "playing") {
-      // Pause the game
       gameState.state = "paused";
       pauseMenu.classList.remove("hidden");
     } else if (gameState.state === "paused") {
-      // Resume the game using ESC as well as resume button
       pauseMenu.classList.add("hidden");
       gameState.state = "playing";
       gameLoop(canvas, ctx, keys);
     }
+    return;
   }
-  // Only record keys if playing
+
+  // For space bar, allow one shot per key press.
+  if (e.key === " ") {
+    if (!keys[" "]) {
+      keys[" "] = true;
+      // Fire one shot immediately
+      firePlayerBullet(player);
+    }
+    return;
+  }
+
+  // Record key if playing.
   if (gameState.state === "playing") {
     keys[e.key] = true;
   }
